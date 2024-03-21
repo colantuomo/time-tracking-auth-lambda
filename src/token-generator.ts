@@ -1,6 +1,6 @@
 import * as jose from 'jose'
 
-export async function generateToken(user: string, password: string) {
+export function generateToken(user: string, password: string) {
     const secret = new TextEncoder().encode(process.env.SECRET_KEY)
     const alg = 'HS256'
 
