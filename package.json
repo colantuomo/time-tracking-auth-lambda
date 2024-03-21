@@ -6,7 +6,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup index.ts --format esm"
+    "build": "tsup"
+  },
+  "tsup": {
+    "entry": [
+      "index.ts"
+    ],
+    "splitting": false,
+    "clean": true,
+    "format": "esm",
+    "target":"es6",
+    "minify": true
   },
   "keywords": [],
   "author": "",
