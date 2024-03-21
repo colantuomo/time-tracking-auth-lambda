@@ -1,3 +1,3 @@
 export function register() {
-    return 'register works!';
+    return 'register works 2!';
 }

@@ -22,7 +22,7 @@ jobs:
           npm run build --if-present
         env:
           CI: true
-      - name: npm install and build
+      - name: remove index.js from dist folder
         run: |
           mv ./dist/index.js ./index.js
       - name: zip
