@@ -1,8 +1,7 @@
 import { Handler } from "aws-lambda";
 export const handler: Handler = async (event, context) => {
     const requestBody = JSON.parse(event.body);
-    const { login, register } = event.pathParameters;
-    const { matricula, password } = requestBody;
+    const { login, register, matricula, password } = requestBody;
     if (login) {
         return {
             statusCode: 200,
