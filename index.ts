@@ -11,7 +11,7 @@ export const handler: Handler = async (event, context) => {
         return formatResponse(401, { message: 'User and password are required' });
     }
 
-    if (!await isAValidUser(user)) {
+    if (!await isAValidUser(user, password)) {
         return formatResponse(404, { message: 'User does not exist. Please register first.' });
     }
 
