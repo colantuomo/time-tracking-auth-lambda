@@ -1,9 +1,10 @@
 {
   "name": "time-tracking-auth-lambda",
-  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "module": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup"
@@ -15,8 +16,9 @@
     "splitting": false,
     "clean": true,
     "format": "esm",
-    "target":"es2016",
-    "minify": true
+    "target": "esnext",
+    "minify": true,
+    "resolve": "jsonwebtoken"
   },
   "keywords": [],
   "author": "",
@@ -25,8 +27,8 @@
     "@types/aws-lambda": "^8.10.136",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.11.30",
+    "jose": "^5.2.3",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.3",
-    "jsonwebtoken": "^9.0.2"
+    "typescript": "^5.4.3"
   }
 }
