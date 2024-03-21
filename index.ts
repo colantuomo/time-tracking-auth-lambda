@@ -1,21 +1,21 @@
 import { Handler } from "aws-lambda";
+import { formatResponse } from './src/utils';
+import { generateToken } from './src/token-generator';
+import { isAValidUser } from './src/user-validator';
+
 export const handler: Handler = async (event, context) => {
     const requestBody = JSON.parse(event.body);
-    const { login, register, matricula, password } = requestBody;
-    if (login) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify(`register route ${matricula}`)
-        };
+    const { user, password } = requestBody;
+
+    if (!user || !password) {
+        return formatResponse(401, { message: 'User and password are required' });
     }
-    if (register) {
-        return {
-            statusCode: 200,
-            body: JSON.stringify(`register route ${matricula}`)
-        };
+
+    if (!await isAValidUser(user)) {
+        return formatResponse(404, { message: 'User does not exist. Please register first.' });
     }
-    return {
-        statusCode: 404,
-        body: JSON.stringify(`route not found`)
-    };
+
+    return formatResponse(200, {
+        token: generateToken(user, password)
+    })
 };
