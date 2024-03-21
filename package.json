@@ -15,7 +15,7 @@
     "splitting": false,
     "clean": true,
     "format": "esm",
-    "target":"es6",
+    "target":"es2016",
     "minify": true
   },
   "keywords": [],
