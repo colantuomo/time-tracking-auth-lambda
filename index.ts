@@ -16,6 +16,6 @@ export const handler: Handler = async (event, context) => {
     }
 
     return formatResponse(200, {
-        token: generateToken(user, password)
+        token: await generateToken(user, password)
     })
 };
