@@ -17,7 +17,7 @@ export async function scanByUsernameAndPassword(user: string, password: string) 
     const docClient = DynamoDBDocumentClient.from(client);
     const command = new ScanCommand({
         TableName: "users",
-        FilterExpression: 'username = :username',
+        FilterExpression: 'username = :username AND pass = :pass',
         ExpressionAttributeValues: {
             ':username': { S: user },
             ':pass': { S: password },

@@ -11,11 +11,15 @@ export const handler: Handler = async (event, context) => {
         return formatResponse(401, { message: 'User and password are required' });
     }
 
-    if (!await isAValidUser(user, password)) {
-        return formatResponse(404, { message: 'User does not exist. Please register first.' });
+    try {
+        await isAValidUser(user, password)
+    } catch (error: any) {
+        return formatResponse(500, {
+            message: error?.message
+        })
     }
 
     return formatResponse(200, {
-        token: await generateToken(user, password)
+        token: await generateToken(user, password),
     })
 };
