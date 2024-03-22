@@ -22,3 +22,17 @@ Para usar, siga estas etapas:
     ```bash
     npm install
     ```
+## Deploy
+O deploy está sendo feito automatica toda vez que existe um merge na branch `main`
+
+## Testing
+Para testar via algum client HTTP podemos usar o cURL abaixo:
+
+```curl
+curl --location 'https://txuf2xip6mhkwnona7pkgcvesi0wieye.lambda-url.sa-east-1.on.aws/' \
+--header 'Content-Type: application/json' \
+--data '{
+    "user": "",
+    "password": ""
+}'
+```
