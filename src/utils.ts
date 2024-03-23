@@ -1,5 +1,6 @@
 export function formatResponse<T>(statusCode: number, body: T) {
     return {
+        isBase64Encoded: false,
         headers: {
             "Content-Type": "application/json",
         },
