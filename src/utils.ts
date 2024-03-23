@@ -5,6 +5,6 @@ export function formatResponse<T>(statusCode: number, body: T) {
             "Content-Type": "application/json",
         },
         statusCode,
-        body
+        body: JSON.stringify(body)
     };
 }
